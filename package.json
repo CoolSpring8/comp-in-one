@@ -1,0 +1,36 @@
+{
+  "name": "comp-in-one",
+  "version": "0.0.1",
+  "description": "Build React apps in a single component.",
+  "type": "module",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "CoolSpring8",
+  "license": "MIT",
+  "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.18",
+    "@vitejs/plugin-react": "^4.0.4",
+    "happy-dom": "^10.6.3",
+    "react": "^18.2.0",
+    "vite": "^4.4.8",
+    "vite-plugin-dts": "^3.5.1",
+    "vitest": "^0.34.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
