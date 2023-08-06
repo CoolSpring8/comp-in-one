@@ -2,7 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/comp-in-one.svg)](https://badge.fury.io/js/comp-in-one)
 
-Build React apps in a single component.
+Enjoy mixing React Hooks in JSX, without the hassle of creating new components and drilling props down.
+
+Essentially makes building large-scale React apps in a single component more viable.
 
 **Note**: This README is co-written by GPT language model, so the text may be wordy at times. I apologize for any inconvenience this may cause. If you prefer more concise content, please feel free to refer to the provided summary and sections of interest to avoid any unnecessary reading.
 
