@@ -217,7 +217,7 @@ describe("<Comp /> used conditionally", () => {
       );
     };
 
-    const { getByTestId, getByText, queryByTestId } = render(<App />);
+    const { getByTestId, getByText } = render(<App />);
 
     expect(getByTestId("foo").innerText).toBe("foo");
 
@@ -237,6 +237,7 @@ describe("<Comp /> used conditionally", () => {
 
 describe("Possible to optimize for rerenders", () => {
   test("with useMemo", () => {
+    let renderCount = 0;
     const App = () => {
       const [count, setCount] = React.useState(0);
       return (
@@ -247,13 +248,9 @@ describe("Possible to optimize for rerenders", () => {
             () => (
               <Comp>
                 {() => {
-                  const renderCount = React.useRef(0);
-                  renderCount.current++;
-                  return (
-                    <div>
-                      <div data-testid="renderCount">{renderCount.current}</div>
-                    </div>
-                  );
+                  React.useEffect(() => {});
+                  renderCount++;
+                  return <div>foo</div>;
                 }}
               </Comp>
             ),
@@ -266,17 +263,18 @@ describe("Possible to optimize for rerenders", () => {
     const { getByTestId, getByText } = render(<App />);
 
     expect(getByTestId("count").innerText).toBe("0");
-    expect(getByTestId("renderCount").innerText).toBe("1");
+    expect(renderCount).toBe(1);
 
     act(() => {
       getByText("+").click();
     });
 
     expect(getByTestId("count").innerText).toBe("1");
-    expect(getByTestId("renderCount").innerText).toBe("1");
+    expect(renderCount).toBe(1);
   });
 
   test("with useCallback and memo", () => {
+    let renderCount = 0;
     const App = () => {
       const [count, setCount] = React.useState(0);
       return (
@@ -285,13 +283,9 @@ describe("Possible to optimize for rerenders", () => {
           <button onClick={() => setCount((c) => c + 1)}>+</button>
           <MComp>
             {React.useCallback(() => {
-              const renderCount = React.useRef(0);
-              renderCount.current++;
-              return (
-                <div>
-                  <div data-testid="renderCount">{renderCount.current}</div>
-                </div>
-              );
+              React.useEffect(() => {});
+              renderCount++;
+              return <div>foo</div>;
             }, [])}
           </MComp>
         </div>
@@ -301,17 +295,18 @@ describe("Possible to optimize for rerenders", () => {
     const { getByTestId, getByText } = render(<App />);
 
     expect(getByTestId("count").innerText).toBe("0");
-    expect(getByTestId("renderCount").innerText).toBe("1");
+    expect(renderCount).toBe(1);
 
     act(() => {
       getByText("+").click();
     });
 
     expect(getByTestId("count").innerText).toBe("1");
-    expect(getByTestId("renderCount").innerText).toBe("1");
+    expect(renderCount).toBe(1);
   });
 
   test("adding another layer in case of useMemo being called conditionally ", () => {
+    let renderCount = 0;
     const App = () => {
       const [count, setCount] = React.useState(0);
       return (
@@ -324,15 +319,9 @@ describe("Possible to optimize for rerenders", () => {
                 () => (
                   <Comp>
                     {() => {
-                      const renderCount = React.useRef(0);
-                      renderCount.current++;
-                      return (
-                        <div>
-                          <div data-testid="renderCount">
-                            {renderCount.current}
-                          </div>
-                        </div>
-                      );
+                      React.useEffect(() => {});
+                      renderCount++;
+                      return <div>foo</div>;
                     }}
                   </Comp>
                 ),
@@ -347,13 +336,13 @@ describe("Possible to optimize for rerenders", () => {
     const { getByTestId, getByText } = render(<App />);
 
     expect(getByTestId("count").innerText).toBe("0");
-    expect(getByTestId("renderCount").innerText).toBe("1");
+    expect(renderCount).toBe(1);
 
     act(() => {
       getByText("+").click();
     });
 
     expect(getByTestId("count").innerText).toBe("1");
-    expect(getByTestId("renderCount").innerText).toBe("1");
+    expect(renderCount).toBe(1);
   });
 });
