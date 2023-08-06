@@ -4,7 +4,7 @@
 
 Build React apps in a single component.
 
-**Note**: This README is co-written by GPT language model, so the text may be wordy at times. We apologize for any inconvenience this may cause and assure you that all the essential information has been expressed. If you prefer more concise content, please feel free to refer to the provided summary and sections of interest to avoid any unnecessary reading.
+**Note**: This README is co-written by GPT language model, so the text may be wordy at times. I apologize for any inconvenience this may cause. If you prefer more concise content, please feel free to refer to the provided summary and sections of interest to avoid any unnecessary reading.
 
 ## Key Features
 
@@ -45,7 +45,7 @@ function MyApp() {
 
 3. Enjoy the simplicity and flexibility of building your React app using a single component!
 
-For more details and potential pitfalls, you can also refer to the provided [test cases](https://github.com/CoolSpring8/comp-in-one/blob/main/index.test.ts) associated with this library.
+For more details and potential pitfalls, you can also refer to the provided [test cases](https://github.com/CoolSpring8/comp-in-one/blob/main/index.test.tsx) associated with this library.
 
 # Motivation
 
@@ -67,7 +67,7 @@ Internally, `comp-in-one` takes a function as its children prop and executes it 
 
 **Q2: Can I use `comp-in-one` in other JSX libraries, like Solid.js?**
 
-While `comp-in-one` is originally designed for React, it may work well with other JSX libraries like Solid.js in simple situations. Keep in mind that `comp-in-one` currently exports components specifically for React integration. However, if there is demand and `comp-in-one` proves to be successful, expanding its compatibility to other libraries could be considered in the future. You can also inspect the [source code](https://github.com/CoolSpring8/comp-in-one/blob/main/index.ts) and copy-paste it as a snippet.
+While `comp-in-one` is originally designed for React, it may work well with other JSX libraries like Solid.js in simple situations. Keep in mind that `comp-in-one` currently exports components specifically for React integration. However, if there is demand and `comp-in-one` proves to be successful, expanding its compatibility to other libraries could be considered in the future. You can also inspect the [source code](https://github.com/CoolSpring8/comp-in-one/blob/main/index.tsx) and copy-paste it as a snippet.
 
 **Q3: Are there any limitations or trade-offs when using `comp-in-one`?**
 
