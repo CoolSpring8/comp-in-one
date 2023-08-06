@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/comp-in-one.svg)](https://badge.fury.io/js/comp-in-one)
 
-Enjoy mixing React Hooks in JSX, without the hassle of creating new components and drilling props down.
+Mixing React Hooks into JSX, without the hassle of creating new components and drilling props down.
 
 Essentially makes building large-scale React apps in a single component more viable.
 
