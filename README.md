@@ -65,7 +65,9 @@ One of the key insights behind comp-in-one is its potential to optimize your com
 
 **Q1: How does `comp-in-one` work internally? Specifically, how does it handle one-way data flow?**
 
-Internally, `comp-in-one` takes a function as its children prop and executes it to render the desired component structure. Within the `Comp` component, React recognizes and handles any hooks used within the children function as if they are used by `Comp`. This one-way data flow simplifies component creation by allowing the function to define the component structure and behavior without the need for prop drilling.
+Internally, `comp-in-one` takes a function as its children prop and executes it to render the desired component structure. Within the `Comp` component, React recognizes and handles any hooks used within the children function as if they are used by `Comp`.
+
+`comp-in-one` leverages JavaScript closures, allowing the children function to access outer variables which would otherwise be passed as props in a conventional component structure.
 
 **Q2: Can I use `comp-in-one` in other JSX libraries, like Solid.js?**
 
